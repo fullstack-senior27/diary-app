@@ -7,6 +7,10 @@
             新規作成
         </a>
     </div>
+    <div class="mb-4 space-x-4">
+        <a href="{{ route('diaries.index', ['sort' => 'desc']) }}" class="text-blue-600 hover:underline">新しい順</a>
+        <a href="{{ route('diaries.index', ['sort' => 'asc']) }}" class="text-blue-600 hover:underline">古い順</a>
+    </div>
 
     <div class="space-y-6">
         @foreach ($diaries as $diary)

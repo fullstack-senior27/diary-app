@@ -13,7 +13,8 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaries = Diary::latest()->paginate(5);
+        $sort = request()->get('sort', 'desc');
+        $diaries = Diary::orderBy('date', $sort)->paginate(5);
         return view('diaries.index', compact('diaries'));
     }
 

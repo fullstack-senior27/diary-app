@@ -22,3 +22,49 @@ Laravel 12 で構築されたシンプルな日記投稿サイトです。
 ```bash
 git clone https://github.com/fullstack-senior27/diary-app.git
 cd diary-app
+```
+
+### 2. 環境構築（PHP/Laravel）
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+### 3. データベース設定
+.env ファイル内の以下を自身の環境に合わせて編集してください。
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=diary_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 4. マイグレーション & ストレージリンク
+
+```bash
+php artisan migrate
+php artisan storage:link
+```
+
+### 5. フロントエンド構築（Tailwind CSS + Vite）
+
+```bash
+npm install
+npm run dev
+```
+
+### 6. アプリケーションの起動
+
+```bash
+php artisan serve
+```
+
+ブラウザでアクセス：
+```bash
+http://127.0.0.1:8000/diaries
+```

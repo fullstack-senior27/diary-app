@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
-    protected $fillable = ['content', 'image_path'];
+    protected $fillable = ['date', 'content', 'image_path'];
+    protected $casts = ['date' => 'date'];    
 }

@@ -31,6 +31,7 @@ class DiaryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'date' => 'nullable|date',
             'content' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpg,jpeg|max:5120',
         ]);
@@ -38,6 +39,7 @@ class DiaryController extends Controller
         $imagePath = $request->file('image')?->store('images', 'public');
 
         Diary::create([
+            'date' => $request->date,
             'content' => $request->content,
             'image_path' => $imagePath,
         ]);
@@ -59,6 +61,7 @@ class DiaryController extends Controller
     public function update(Request $request, Diary $diary)
     {
         $request->validate([
+            'date' => 'nullable|date',
             'content' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpg,jpeg|max:5120',
         ]);
@@ -70,6 +73,7 @@ class DiaryController extends Controller
             $diary->image_path = $request->file('image')->store('images', 'public');
         }
 
+        $diary->date = $request->date;
         $diary->content = $request->content;
         $diary->save();
 

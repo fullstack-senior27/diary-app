@@ -17,7 +17,7 @@
                          class="w-28 h-28 object-cover rounded-lg border shadow-sm">
                 @endif
                 <div class="flex-1">
-                    <div class="text-gray-500 text-sm">{{ $diary->created_at->format('Y/m/d') }}</div>
+                    <div class="text-gray-500 text-sm">{{ $diary->date ? $diary->date->format('Y/m/d') : $diary->created_at->format('Y/m/d') }}</div>
                     <div class="text-base text-gray-800 font-medium mt-1">{{ $diary->content }}</div>
                     <div class="mt-2 space-x-4 text-sm">
                         <a href="{{ route('diaries.edit', $diary) }}" class="text-blue-600 hover:underline">編集</a>

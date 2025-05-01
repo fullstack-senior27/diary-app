@@ -16,6 +16,10 @@
     <form action="{{ route('diaries.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-4">
+            <label for="date">日付:</label>
+            <input type="date" name="date" class="border px-2 py-1 w-full" value="{{ old('date') }}">
+        </div>
+        <div class="mb-4">
             <label>日記内容:</label>
             <input type="text" name="content" class="border px-2 py-1 w-full" value="{{ old('content') }}" required>
         </div>

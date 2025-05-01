@@ -17,6 +17,10 @@
         @csrf
         @method('PUT')
         <div class="mb-4">
+            <label for="date">日付:</label>
+            <input type="date" name="date" class="border px-2 py-1 w-full" value="{{ old('date', $diary->date?->format('Y-m-d')) }}">
+        </div>
+        <div class="mb-4">
             <label>日記内容:</label>
             <input type="text" name="content" class="border px-2 py-1 w-full" value="{{ old('content', $diary->content) }}" required>
         </div>
